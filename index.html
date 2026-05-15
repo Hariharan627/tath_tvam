@@ -1358,12 +1358,32 @@ function sendToWhatsApp(event) {
     const treatment = document.getElementById("treatment").value;
     const message = document.getElementById("message").value;
 
-    const whatsappMessage = ` *New Consultation Request - Tath-Tvam 96* %0A%0A
- *Name:* ${name} %0A
-*Email:* ${email} %0A
-*Phone:* ${phone} %0A
- *Treatment:* ${treatment} %0A
- *Message:* ${message}`;
+  const whatsappMessage = `
+*NEW CONSULTATION REQUEST - TATH-TVAM 96*
+
+--------------------------------
+
+NAME:
+${name}
+
+EMAIL:
+${email}
+
+PHONE:
+${phone}
+
+TREATMENT:
+${treatment}
+
+MESSAGE:
+${message}
+
+--------------------------------
+`.trim();
+
+const whatsappURL = `https://wa.me/919884061769?text=${encodeURIComponent(whatsappMessage)}`;
+
+window.open(whatsappURL, "_blank");
 
     const whatsappURL = `https://wa.me/919025761626?text=${whatsappMessage}`;
 
